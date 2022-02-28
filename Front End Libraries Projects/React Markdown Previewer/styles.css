@@ -1,0 +1,42 @@
+body {
+  font-size: 24px;
+  background-color: #87b5b5;
+}
+
+.main {
+  display: grid;
+  grid-gap: 15px;
+  margin-top: 40px;
+  grid-template-columns: 1fr;
+}
+
+#editor,
+#preview {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #c8d8d8;
+}
+
+#editor {
+  min-height: 300px;
+}
+
+img {
+  max-width: 70%;
+  border-radius: 15px;
+}
+
+pre,
+code {
+  background-color: #ffffff;
+}
+
+pre {
+  padding: 10px;
+}
+
+@media (min-width: 992px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+  }
+}
