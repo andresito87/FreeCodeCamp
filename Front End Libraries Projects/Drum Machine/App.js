@@ -123,11 +123,11 @@ const soundsGroup = {
     smoothPianoKit: bankSoundsTwo
 }
 
-const KeyboardKey = ({play, sound: {keyTrigger, url, keyCode}}) => {
+const KeyboardKey = ({play, sound: {id, keyTrigger, url, keyCode}}) => {
     
     const handleKeydown = (event) =>{
             if(event.keyCode === keyCode){
-                play(keyTrigger)
+                play(keyTrigger,id)
             }
     }
     
@@ -136,41 +136,73 @@ const KeyboardKey = ({play, sound: {keyTrigger, url, keyCode}}) => {
         }, [])
     
     return (
-        <button className="drum-pad" onClick={() => play(keyTrigger)}>
+        <button id= {keyCode} className="drum-pad" onClick={() => play(keyTrigger, id)}>
                     <audio className="clip" id={keyTrigger} src={url} />
                         {keyTrigger}
                 </button>
    )
 }
 
-const Keyboard = ({play , sounds}) => (
+const Keyboard = ({play , sounds, power}) => (
     <div className="keyboard">
-        {sounds.map((sound) => <KeyboardKey play={play} sound={sound}/>)}
+        {power 
+            ? sounds.map((sound) => <KeyboardKey play={play} sound={sound}/>)
+            : sounds.map((sound) => <KeyboardKey play={play} sound={{...sound, url: "#"}}/>)
+      }
     </div>
 )
     
-      
 
-
-const DumControl = ({name, changeSounds}) => (
+const DumControl = ({name, power,stop, changeSounds, volume, handleVolumeChange}) => (
     <div className="control">
-        <h2 id="display">{name}</h2>
+      <button onClick={stop}>{power ? "UNMUTED" : "MUTED"}</button>
+      <h2>Volume: {Math.round(volume * 100)} %</h2>
+        <input max="1" min="0" step="0.01" type="range" value={volume} onChange={handleVolumeChange} />
+          <h2 id="display">{name}</h2>
             <button onClick={changeSounds}>Change Sounds</button>
     </div>
 )
 const App = ()=> {
 
+    const [power, setPower] = React.useState(true);
+    const [volume, setVolume] = React.useState(1);
     const [soundName, setSoundName] = React.useState("");
     const [soundType, setSoundType] = React.useState("heaterKit");
     const [sounds, setSounds] = React.useState(soundsGroup[soundType])
 
-    const play = (key) =>{
+    const stop = () =>{
+      setPower(!power)
+    }
+
+    const handleVolumeChange = (event) => {
+
+        setVolume(event.target.value)
+
+    }
+
+    const styleKeyDown = (audio) => {
+      audio.parentElement.style.backgroundColor="#000000"
+      audio.parentElement.style.color = "#ffffff"
+    }
+
+    const desactivateAudio = (audio) => {
+        setTimeout(() => {
+          audio.parentElement.style.backgroundColor="#ffffff"
+          audio.parentElement.style.color = "#000000"
+        }, 250)
+    }
+
+    const play = (key,sound) =>{
+            setSoundName(sound)
             const audio = document.getElementById(key)
+            styleKeyDown(audio)
             audio.currentTime = 0;
             audio.play();
+            desactivateAudio(audio)
     }
 
     const changeSounds = () => {
+        setSoundName("")
         if(soundType === "heaterKit") {
             setSoundType("smoothPianoKit")
             setSounds(soundsGroup.smoothPianoKit)
@@ -180,10 +212,22 @@ const App = ()=> {
         }
     }
 
+    const setKeyVolume = () => {
+        const audios = sounds.map(sound => document.getElementById(sound.keyTrigger))
+        audios.forEach(audio => {
+          if (audio) {
+            audio.volume = volume
+          }
+        })
+    }
+
     return <div id="drum-machine">
+                {setKeyVolume()}
                 <div className="wrapper">
-                    <Keyboard play={play} sounds={sounds}/>
-                    <DumControl name={soundsName[soundType]}changeSounds={changeSounds} />
+                    <Keyboard power={power} play={play} sounds={sounds}/>
+                    <DumControl volume={volume} handleVolumeChange={handleVolumeChange} 
+                                name={soundName || soundsName[soundType]}changeSounds={changeSounds}
+                                power={power} stop={stop} />
                 </div>
             </div>
         

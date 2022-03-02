@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Russo+One");
+
 * {
   margin: 0;
 }
 
 body {
   font-size: 24px;
+  font-family: Russo One;
 }
 
 h2 {
@@ -38,6 +41,7 @@ h2 {
 
 .keyboard .drum-pad {
   width: 100%;
+  font-family: Russo One;
   height: 88px;
   outline: none;
   font-size: 24px;
@@ -70,6 +74,7 @@ h2 {
 .control > input,
 .control > h2 {
   margin-bottom: 10px;
+  font-family: Russo One;
 }
 
 .control button {
