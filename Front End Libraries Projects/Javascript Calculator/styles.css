@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300&family=Poppins:wght@700&family=Raleway:ital,wght@1,500;1,600&family=Ubuntu&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Ubuntu", "sans-serif";
+  margin: 0;
+  background-color: #ecf0f1;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator {
+  background-color: #111111;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  height: 400px;
+  width: 240px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5px;
+  height: 380px;
+  width: 250px;
+}
+
+.display {
+  color: #fff;
+  font-size: 30px;
+  padding: 10px;
+  text-align: right;
+  width: 100%;
+}
+
+.nums-container {
+  width: 75%;
+}
+
+.ops-container {
+  width: 25%;
+}
+
+button {
+  border: none;
+  font-family: "Ubuntu", "sans-serif";
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  margin: 5px;
+  height: 50px;
+  width: 50px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:active {
+  transform: scale(0.75);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.big-v {
+  border-radius: 50px;
+  height: 110px;
+}
+
+button.big-h {
+  border-radius: 50px;
+  width: 110px;
+}
+
+button.orange {
+  background-color: orange;
+  color: #fff;
+}
+
+button.light-grey {
+  background-color: rgb(155, 155, 155);
+  color: #111111;
+}
+
+button.dark-grey {
+  background-color: rgb(56, 56, 56);
+  color: #fff;
+}
+
+button.ac {
+  margin-right: 50%;
+}
