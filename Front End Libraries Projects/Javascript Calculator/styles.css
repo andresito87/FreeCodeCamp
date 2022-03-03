@@ -21,15 +21,17 @@ body {
   display: flex;
   flex-wrap: wrap;
   padding: 5px;
-  height: 380px;
+  height: 390px;
   width: 250px;
 }
 
 .display {
   color: #fff;
-  font-size: 30px;
-  padding: 10px;
+  font-size: 36px;
+  position: relative;
+  padding: 20px 10px;
   text-align: right;
+  height: 70px;
   width: 100%;
 }
 
@@ -81,7 +83,6 @@ button.orange {
 
 button.light-grey {
   background-color: rgb(155, 155, 155);
-  color: #111111;
 }
 
 button.dark-grey {
