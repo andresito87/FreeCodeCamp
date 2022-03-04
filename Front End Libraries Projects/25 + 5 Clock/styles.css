@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300&family=Poppins:wght@700&family=Raleway:ital,wght@1,500;1,600&family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300&family=Patua+One&family=Poppins:wght@700&family=Raleway:ital,wght@1,500;1,600&family=Ubuntu&display=swap");
+
+body {
+  background-image: url("https://i.pinimg.com/564x/01/94/3c/01943c816269dc8f5ba5e21e3f40b186.jpg");
+  background-size: 100% 100%;
+  font-size: 24px;
+  font-family: "Bebas Neue", cursive;
+}
+
+.wrapper {
+  display: flex;
+  height: 97.5vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper h2 {
+  margin: 0;
+}
+
+.break-session-length {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+}
+
+button {
+  font-family: "Bebas Neue", cursive;
+  border: none;
+  padding: 8px;
+  font-size: 18px;
+  border-radius: 4px;
+}
+
+div > button {
+  color: white;
+  background-color: green;
+}
+
+div button:nth-child(2) {
+  color: #000;
+  background-color: yellow;
+}
+
+#reset {
+  color: #000;
+  background-color: rgb(255, 115, 0);
+}
+
+strong {
+  margin: 0 8px;
+}
+
+.timer {
+  color: rgb(251, 0, 0);
+  border: 3px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  text-align: center;
+  margin: 20px 5px;
+  padding-top: 10px;
+}
+
+.timer-wrapper > button {
+  margin-left: 10px;
+}
