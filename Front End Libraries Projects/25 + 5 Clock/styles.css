@@ -4,7 +4,7 @@
 body {
   background-image: url("https://i.pinimg.com/564x/01/94/3c/01943c816269dc8f5ba5e21e3f40b186.jpg");
   background-size: 100% 100%;
-  font-size: 24px;
+  font-size: 30px;
   font-family: "Bebas Neue", cursive;
 }
 
@@ -22,7 +22,7 @@ body {
 
 .break-session-length {
   display: flex;
-  width: 400px;
+  width: 380px;
   justify-content: space-between;
 }
 
@@ -32,6 +32,10 @@ button {
   padding: 8px;
   font-size: 18px;
   border-radius: 4px;
+}
+
+button:active {
+  transform: scale(0.75);
 }
 
 div > button {
@@ -58,8 +62,8 @@ strong {
   border: 3px solid rgb(0, 0, 0);
   border-radius: 10px;
   text-align: center;
-  margin: 20px 5px;
-  padding-top: 10px;
+  margin: 20px 0;
+  padding-top: 20px;
 }
 
 .timer-wrapper > button {
